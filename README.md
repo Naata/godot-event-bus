@@ -11,19 +11,19 @@ Removes the need to explicitly connect signals to nodes - the only thing you nee
 ## Usage
 ### As global Event Bus
 Use event_bus.gd script as Singleton in AutLoad:
-![global event bus](./readme/global.png)
+![global event bus](./readme/global.PNG)
 ### As scene-local Event Bus
 Add EventBus node to your scene:
 ![tree](./readme/tree_view.png)
 ### Send and get some events!
 #### Subscribe to event
-![subscribe](./readme/subscribe.png)
+![subscribe](./readme/subscribe.PNG)
 #### Publish event
-![publish](./readme/publish.png)
+![publish](./readme/publish.PNG)
 ## Customize
 * You can decide when event processing takes place:
   * **Idle** - inside ```_process(delta)``` function
   * **Physics** - inside ```_physics_process_delta``` function
 * Also you can decide how many events will be processed during single invocation (default is 1).
 
-![customizing](./readme/event_bus_properties.png)
+![customizing](./readme/event_bus_properties.PNG)
