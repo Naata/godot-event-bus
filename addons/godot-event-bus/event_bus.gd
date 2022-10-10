@@ -36,9 +36,7 @@ func _process_events():
 
 	var num = min(events_at_once, events.size())
 	for i in range(0, num):
-		false # events_lock.lock() # TODOConverter40, image no longer require locking, `false` helps to not broke one line if/else, so can be freely removed
 		var event = events.pop_front()
-		false # events_lock.unlock() # TODOConverter40, image no longer require locking, `false` helps to not broke one line if/else, so can be freely removed
 
 		event.receiver.call(event.method, event.value)
 
@@ -49,20 +47,17 @@ func publish(event_name, value = null):
 		event.receiver = receiver
 		event.method = event_receivers[receiver]
 		event.value = value
-
-		false # events_lock.lock() # TODOConverter40, image no longer require locking, `false` helps to not broke one line if/else, so can be freely removed
+		
 		events.push_back(event)
-		false # events_lock.unlock() # TODOConverter40, image no longer require locking, `false` helps to not broke one line if/else, so can be freely removed
 
 func subscribe(event_name, receiver, method):
 	if !receiver.has_method(method):
 		printerr(receiver, " doesn't have method ", method)
 		return
 
-	false # receivers_lock.lock() # TODOConverter40, image no longer require locking, `false` helps to not broke one line if/else, so can be freely removed
 	if !receivers.has(event_name):
 		receivers[event_name] = {}
-	false # receivers_lock.unlock() # TODOConverter40, image no longer require locking, `false` helps to not broke one line if/else, so can be freely removed
+
 	receivers[event_name][receiver] = method;
 
 
