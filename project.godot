@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Godot Event Bus"
+run/main_scene="res://TestScene.tscn"
+config/features=PackedStringArray("4.0")
+config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
